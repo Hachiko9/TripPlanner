@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      New trip
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="test">
+  <div class="background-container">
+    <ion-card class="form-container">
+
+      <ion-item>
+        <ion-label position="floating">City</ion-label>
+        <ion-input [(ngModel)]="newTrip.city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">From</ion-label>
+        <ion-datetime [(ngModel)]="newTrip.from" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">To</ion-label>
+        <ion-datetime [(ngModel)]="newTrip.to" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Participants</ion-label>
+        <ion-input [(ngModel)]="newTrip.participants"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Accommodation</ion-label>
+        <ion-input [(ngModel)]="newTrip.accommodation"></ion-input>
+      </ion-item>
+
+      <ion-button>Save</ion-button>
+    </ion-card>
+  </div>
+</ion-content>
+

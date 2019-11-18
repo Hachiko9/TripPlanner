@@ -1,4 +1,17 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+@import "../../theme/variables";
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: white;
+  color: #22c1c3;
+
+  .home-button {
+    margin: 28px;
+    height: 100px;
+    width: 80%;
+  }
 }

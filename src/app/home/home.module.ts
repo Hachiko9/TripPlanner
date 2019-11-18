@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 
+import { HomeButtonComponent } from '../home-button/home-button.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +20,9 @@ import { HomePage } from './home.page';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [
+      HomePage,
+      HomeButtonComponent
+  ]
 })
 export class HomePageModule {}
