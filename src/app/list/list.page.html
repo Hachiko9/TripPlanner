@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+
     <ion-title>
       List
     </ion-title>
@@ -10,18 +11,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+    <app-trip-summary *ngFor="let trip of trips"
+                      city="{{trip.city}}"
+                      fromDate="{{trip.fromDate}}"
+                      toDate="{{trip.toDate}}"
+    ></app-trip-summary>
 </ion-content>

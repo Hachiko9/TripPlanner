@@ -1,0 +1,32 @@
+
+.trip-card {
+  background: rgb(238,174,202);
+  background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  display: flex;
+  flex-direction: row;
+  height: 112px;
+  border-radius: 10px;
+  width: 80%;
+  margin: auto;
+
+  .trip-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background: url("https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/10/13/tokyo-main.jpg?w968h681");
+    margin: 8px;
+    width: 33%;
+    border-radius: 10px;
+  }
+  .trip-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+    color: white;
+    font-family: monospace;
+    font-size: 16px;
+
+  }
+}
+

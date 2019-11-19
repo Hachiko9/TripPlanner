@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
+import { TripSummaryComponent } from '../trip-summary/trip-summary.component';
 
 import { ListPage } from './list.page';
 
@@ -18,6 +19,6 @@ import { ListPage } from './list.page';
       }
     ])
   ],
-  declarations: [ListPage]
+  declarations: [ListPage, TripSummaryComponent]
 })
 export class ListPageModule {}
