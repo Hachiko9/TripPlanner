@@ -1,17 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Trip} from '../models/Trip';
+import { ModalController } from '@ionic/angular';
 
 @Component({
-    selector: 'app-trip-detail',
-    templateUrl: './trip-detail.component.html',
-    styleUrls: ['./trip-detail.component.scss'],
+    selector: 'app-trip-expenses',
+    templateUrl: './trip-expenses.component.html',
+    styleUrls: ['./trip-expenses.component.scss'],
 })
-export class TripDetailComponent implements OnInit {
+export class TripExpensesComponent implements OnInit {
 
-    private trip: Trip;
+    public trip: Trip;
 
-    constructor(private router: Router) {
+    constructor(
+        private router: Router,
+        private modal: ModalController
+    ) {
     }
 
     ngOnInit() {
@@ -30,18 +34,20 @@ export class TripDetailComponent implements OnInit {
             this.trip = mockedTrip;
         }
 
-        this.goToPlanner();
+        this.trip.expenses = [
+            {
+                _id: '1',
+                amount: 14,
+                date: '29-02-2020',
+                buyer: 'Joy',
+                place: 'Cava',
+                reason: 'lunch'
+             }
+        ];
+
     }
 
-    public goToPlanner(): void {
-        this.router.navigate(['/trip-detail/planner'], {state: {trip: this.trip}});
-    }
+    public addNewExpense(): void {
 
-    public goToExpenses(): void {
-        this.router.navigate(['/trip-detail/expenses'], {state: {trip: this.trip}});
-    }
-
-    public goToGallery(): void {
-        this.router.navigate(['/trip-detail/gallery'], {state: {trip: this.trip}});
     }
 }

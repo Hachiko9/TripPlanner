@@ -1,3 +1,5 @@
+import {Expense} from './Expense';
+
 export class Trip {
     _id: string;
     city: string;
@@ -5,5 +7,6 @@ export class Trip {
     toDate: string;
     participants: string[];
     accommodation: string;
-    picture: string;
+    pictures: string[];
+    expenses: Expense[];
 }

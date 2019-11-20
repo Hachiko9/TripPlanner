@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Trip To: {{ trip.city }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ion-card color="light" class="trip-detail-card">
+    <h6> Trip to: {{ trip.city }} </h6>
+    <span> From: {{ trip.fromDate }}</span>
+    <span> To: {{ trip.toDate }}</span>
+    <span> Accommodation: {{ trip.accommodation }}</span>
+    <span> Participants: {{ trip.participants }}</span>
+  </ion-card>
+
+  <app-trip-days-scroll></app-trip-days-scroll>
+
+  <ion-card class="trip-day-detail-card" color="light">
+    A
+  </ion-card>
+</ion-content>

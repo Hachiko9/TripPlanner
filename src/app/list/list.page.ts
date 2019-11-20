@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Trip} from '../models/Trip';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-list',
@@ -28,9 +29,15 @@ export class ListPage implements OnInit {
         }
     ];
 
-ngOnInit() {}
+    constructor(
+        private router: Router
+    ) {}
 
+    ngOnInit() {}
 
+    public goToDetailPage(trip: Trip) {
+        this.router.navigate(['/trip-detail'], {state: {trip}});
+    }
 // add back when alpha.4 is out
 // navigate(item) {
 //   this.router.navigate(['/list', JSON.stringify(item)]);

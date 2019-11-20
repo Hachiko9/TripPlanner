@@ -10,8 +10,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="primary">
     <app-trip-summary *ngFor="let trip of trips"
+                      (click)="goToDetailPage(trip)"
                       city="{{trip.city}}"
                       fromDate="{{trip.fromDate}}"
                       toDate="{{trip.toDate}}"
