@@ -8,7 +8,8 @@ import { NgCalendarModule  } from 'ionic2-calendar';
 import { TripExpensesComponent } from '../trip-expenses/trip-expenses.component';
 import { TripGalleryComponent } from '../trip-gallery/trip-gallery.component';
 import { TripPlannerComponent } from '../trip-planner/trip-planner.component';
-import {TripDetailComponent} from './trip-detail.component';
+import { TripDetailComponent } from './trip-detail.component';
+import { NewExpenseModalModel } from '../trip-expenses/new-expense-modal/new-expense-modal.module';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import {TripDetailComponent} from './trip-detail.component';
         FormsModule,
         IonicModule,
         NgCalendarModule,
+        NewExpenseModalModel,
         RouterModule.forChild([
             {
                 path: '',
@@ -37,6 +39,7 @@ import {TripDetailComponent} from './trip-detail.component';
             }
         ])
     ],
+    entryComponents: [],
     declarations: [
         TripDaysScrollComponent,
         TripDetailComponent,

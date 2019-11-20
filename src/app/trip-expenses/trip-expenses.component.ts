@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Trip} from '../models/Trip';
 import { ModalController } from '@ionic/angular';
+import {NewExpenseModalComponent} from './new-expense-modal/new-expense-modal';
 
 @Component({
     selector: 'app-trip-expenses',
@@ -14,7 +15,7 @@ export class TripExpensesComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private modal: ModalController
+        private modalController: ModalController
     ) {
     }
 
@@ -47,7 +48,11 @@ export class TripExpensesComponent implements OnInit {
 
     }
 
-    public addNewExpense(): void {
+    public async addNewExpense() {
+        const modal = await this.modalController.create({
+            component: NewExpenseModalComponent
+        });
 
+        return await modal.present();
     }
 }
