@@ -14,7 +14,6 @@
     <app-trip-summary *ngFor="let trip of trips"
                       (click)="goToDetailPage(trip)"
                       city="{{trip.city}}"
-                      fromDate="{{trip.fromDate}}"
-                      toDate="{{trip.toDate}}"
+                      dates="{{trip.dates}}"
     ></app-trip-summary>
 </ion-content>

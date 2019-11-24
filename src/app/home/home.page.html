@@ -11,7 +11,7 @@
 
 <ion-content color="primary">
     <div class="home-container">
-        <app-home-button [buttonClass]="'next-trip'" [buttonIcon]="'airplane'" [buttonText]="nextTripDetails"></app-home-button>
+        <app-home-button [buttonClass]="'next-trip'" [buttonIcon]="'airplane'" [buttonText]="nextTripDetails" (click)="goToDetails()"></app-home-button>
 
         <app-home-button [buttonClass]="'new-trip'" [buttonIcon]="'add-circle'" [buttonText]="'Plan a new trip'" [routerLink]="['/new-trip']"></app-home-button>
 

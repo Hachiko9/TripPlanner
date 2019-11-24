@@ -1,3 +1,28 @@
-<div>
+<ion-content color="primary">
+    <ion-card color="light" class="new-expense-card">
+        <div>
+            <ion-item color="light">
+                <ion-label position="floating">Where</ion-label>
+                <ion-input></ion-input>
+            </ion-item>
 
-</div>
+            <ion-item color="light">
+                <ion-label position="floating">Paid by</ion-label>
+                <ion-input></ion-input>
+            </ion-item>
+
+            <ion-item color="light">
+                <ion-label>Personal</ion-label>
+                <ion-toggle color="secondary"></ion-toggle>
+            </ion-item>
+
+            <ion-item color="light">
+                <ion-label position="floating">Notes</ion-label>
+                <ion-input></ion-input>
+            </ion-item>
+        </div>
+        <div class="button-container">
+            <ion-button color="secondary" (click)="saveExpense()">Save</ion-button>
+        </div>
+    </ion-card>
+</ion-content>

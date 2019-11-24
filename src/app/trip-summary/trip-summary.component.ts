@@ -8,8 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TripSummaryComponent implements OnInit {
 
   @Input() city: string;
-  @Input() fromDate: string;
-  @Input() toDate: string;
+  @Input() dates: {from: string, to: string};
 
   constructor() { }
 

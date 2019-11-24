@@ -9,6 +9,8 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {TripDetailModule} from './trip-detail/trip-detail.module';
+import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
+import { CalendarModule } from 'ion2-calendar';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,9 @@ import {TripDetailModule} from './trip-detail/trip-detail.module';
         BrowserModule,
         IonicModule.forRoot(),
         AppRoutingModule,
-        TripDetailModule
+        TripDetailModule,
+        NgxIonicImageViewerModule,
+        CalendarModule
     ],
     providers: [
         StatusBar,

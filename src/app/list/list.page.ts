@@ -13,18 +13,24 @@ export class ListPage implements OnInit {
             _id: '5dd29bb99e73ff61694fdc35',
             participants: ['Joy'],
             city: 'Firenze',
-            fromDate: '29-02-2010',
-            toDate: '29-03-2010',
-            picture: '',
+            dates: {
+                from: '23-10-2010',
+                to: '24-10-2010'
+            },
+            pictures: [],
+            expenses: [],
             accommodation: ''
         },
         {
             _id: '5dd29bb88e73ff61694fdc35',
             participants: ['Joy'],
             city: 'Cava',
-            fromDate: '29-02-2020',
-            toDate: '29-03-2020',
-            picture: '',
+            dates: {
+                from: '02-11-2010',
+                to: '12-11-2010'
+            },
+            pictures: [],
+            expenses: [],
             accommodation: ''
         }
     ];

@@ -19,13 +19,11 @@
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">From</ion-label>
-        <ion-datetime [(ngModel)]="newTrip.from" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">To</ion-label>
-        <ion-datetime [(ngModel)]="newTrip.to" displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"></ion-datetime>
+        <div (click)="showCalendarToggle()">
+          <ion-label>
+            When
+          </ion-label>
+        </div>
       </ion-item>
 
       <ion-item>
@@ -38,7 +36,9 @@
         <ion-input [(ngModel)]="newTrip.accommodation"></ion-input>
       </ion-item>
 
-      <ion-button color="secondary">Save</ion-button>
+      <div class="button-container">
+        <ion-button color="secondary" (click)="saveTrip()" >Save</ion-button>
+      </div>
     </ion-card>
   </div>
 </ion-content>

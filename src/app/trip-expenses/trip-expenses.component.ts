@@ -24,9 +24,12 @@ export class TripExpensesComponent implements OnInit {
             _id: '5dd29bb88e73ff61694fdc35',
             participants: ['Joy'],
             city: 'Cava',
-            fromDate: '29-02-2020',
-            toDate: '29-03-2020',
-            picture: '',
+            dates: {
+                from: '23-10-2010',
+                to: '24-10-2010'
+            },
+            pictures: [],
+            expenses: [],
             accommodation: 'Hotel Victoria'
         };
         if (this.router.getCurrentNavigation().extras.state !== undefined) {

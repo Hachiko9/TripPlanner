@@ -3,8 +3,10 @@ import {Expense} from './Expense';
 export class Trip {
     _id: string;
     city: string;
-    fromDate: string;
-    toDate: string;
+    dates: {
+        from: string,
+        to: string
+    };
     participants: string[];
     accommodation: string;
     pictures: string[];

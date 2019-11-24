@@ -1,0 +1,15 @@
+ion-thumbnail {
+  min-width: 7rem;
+  min-height: 7rem;
+  img {
+    max-width: 7rem;
+    min-width: 7rem;
+  }
+}
+
+ion-viewer-modal {
+  :root {
+    --ion-toolbar-background: #005661;
+
+  }
+}
