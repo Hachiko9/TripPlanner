@@ -1,12 +1,9 @@
-import {Component, Inject, LOCALE_ID, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Trip} from '../models/Trip';
 import {AlertController, ModalController} from '@ionic/angular';
-import {CalendarComponent} from 'ionic2-calendar/calendar';
-import {formatDate} from '@angular/common';
-import {NewExpenseModalComponent} from '../trip-expenses/new-expense-modal/new-expense-modal';
-import {NewEventModalModule} from './new-event-modal/new-event-modal.module';
 import {NewEventModalComponent} from './new-event-modal/new-event-modal.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-trip-planner',
@@ -37,7 +34,6 @@ export class TripPlannerComponent implements OnInit {
         private router: Router,
         private alertCtrl: AlertController,
         private modalController: ModalController,
-        @Inject(LOCALE_ID) private locale: string
     ) { }
 
     ngOnInit() {
@@ -58,12 +54,16 @@ export class TripPlannerComponent implements OnInit {
         } else {
             this.trip = mockedTrip;
         }
-        /*this.eventSource.push({
+        this.eventSource = [{
             allDay: false,
-            endTime: '2019-11-24T17:05:00+01:00',
-            startTime: '2019-11-24T00:00:00+01:00',
+            startTime: moment().toDate(),
+            endTime: moment().add(1, 'h').toDate(),
             title: 'aaa'
-        });*/
+        }];
+    }
+
+    public onChange(data) {
+        console.log('onChange data ', data);
     }
 
     onViewTitleChanged(title) {
@@ -90,27 +90,10 @@ export class TripPlannerComponent implements OnInit {
         this.selectedDay = event;
 
     }
-    markDisabled = (date: Date) => {
+    public markDisabled(date: Date) {
         const current = new Date();
         current.setHours(0, 0, 0);
         return date < current;
-    }
-    blockDayEvent(date) {
-        const startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-
-        const endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-
-        const events = this.eventSource;
-        events.push({
-            title: 'All Day ',
-            startTime,
-            endTime,
-            allDay: true
-        });
-        this.eventSource = [];
-        setTimeout(() => {
-            this.eventSource = events;
-        });
     }
 
     async addEvent() {
@@ -122,10 +105,17 @@ export class TripPlannerComponent implements OnInit {
         const { data } = await modal.onWillDismiss();
 
         if (data) {
-            console.log('here', data);
+            const eventData = data;
+            const events = this.eventSource;
+
+            eventData.startTime = moment(data.startTime).toDate();
+            eventData.endTime = moment(data.endTime).toDate();
+
+            events.push(eventData);
+            this.eventSource = [];
+
             setTimeout(() => {
-                this.eventSource.push(data.data);
-                console.log('eventSource', this.eventSource);
+                this.eventSource = events;
             });
         }
     }

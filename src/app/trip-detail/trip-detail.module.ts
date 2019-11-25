@@ -8,9 +8,11 @@ import { TripExpensesComponent } from '../trip-expenses/trip-expenses.component'
 import { TripGalleryComponent } from '../trip-gallery/trip-gallery.component';
 import { TripPlannerComponent } from '../trip-planner/trip-planner.component';
 import { TripDetailComponent } from './trip-detail.component';
-import { NewExpenseModalModel } from '../trip-expenses/new-expense-modal/new-expense-modal.module';
+
 import { NgCalendarModule  } from 'ionic2-calendar';
 import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
+
+import {NewExpenseModalModule} from '../trip-expenses/new-expense-modal/new-expense-modal.module';
 import { NewEventModalModule } from '../trip-planner/new-event-modal/new-event-modal.module';
 
 
@@ -22,7 +24,7 @@ import { NewEventModalModule } from '../trip-planner/new-event-modal/new-event-m
         NgCalendarModule,
         NgxIonicImageViewerModule,
         NewEventModalModule,
-        NewExpenseModalModel,
+        NewExpenseModalModule,
         RouterModule.forChild([
             {
                 path: '',

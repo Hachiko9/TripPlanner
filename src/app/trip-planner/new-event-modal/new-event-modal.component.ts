@@ -3,6 +3,14 @@ import * as moment from 'moment';
 import {NavParams} from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 
+export interface PlannedEvent {
+    title: string;
+    notes: string;
+    startTime: string | Date;
+    endTime: string | Date;
+    allDay: boolean;
+}
+
 @Component({
     selector: 'app-new-event-modal',
     templateUrl: './new-event-modal.component.html',
@@ -10,11 +18,12 @@ import { ModalController } from '@ionic/angular';
 })
 export class NewEventModalComponent implements OnInit {
 
-    event = {
+    public plannedEvent: PlannedEvent = {
+        title: '',
+        notes: '',
         startTime: new Date().toISOString(),
         endTime: new Date().toISOString(),
         allDay: false,
-        room: {}
     };
     minDate = new Date().toISOString();
 
@@ -22,8 +31,8 @@ export class NewEventModalComponent implements OnInit {
         private navParams: NavParams,
         public modalController: ModalController) {
         const preselectedDate = moment(this.navParams.get('selectedDay')).format();
-        this.event.startTime = preselectedDate;
-        this.event.endTime = preselectedDate;
+        this.plannedEvent.startTime = preselectedDate;
+        this.plannedEvent.endTime = preselectedDate;
     }
 
     ngOnInit() {
@@ -34,7 +43,7 @@ export class NewEventModalComponent implements OnInit {
     }
 
     save() {
-        this.modalController.dismiss({data: this.event});
+        this.modalController.dismiss(this.plannedEvent);
     }
 
     optionSelected($event) {

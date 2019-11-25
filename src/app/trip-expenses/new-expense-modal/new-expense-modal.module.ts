@@ -17,4 +17,4 @@ import {NewExpenseModalComponent} from './new-expense-modal';
     ]
 })
 
-export class NewExpenseModalModel {}
+export class NewExpenseModalModule {}
