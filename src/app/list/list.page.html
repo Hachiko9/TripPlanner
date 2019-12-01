@@ -13,7 +13,7 @@
 <ion-content color="primary">
     <app-trip-summary *ngFor="let trip of trips"
                       (click)="goToDetailPage(trip)"
-                      city="{{trip.city}}"
                       dates="{{trip.dates}}"
+                      city="{{trip.city}}"
     ></app-trip-summary>
 </ion-content>

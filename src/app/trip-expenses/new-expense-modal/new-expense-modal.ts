@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import {Expense} from '../../models/Expense';
 
 @Component({
     selector: 'new-expense-modal',
@@ -7,6 +8,7 @@ import { ModalController } from '@ionic/angular';
     styleUrls: ['./new-expense-modal.scss'],
 })
 export class NewExpenseModalComponent implements OnInit {
+    public expense: Expense = new Expense();
 
     constructor(private modalController: ModalController) {}
 
@@ -14,7 +16,8 @@ export class NewExpenseModalComponent implements OnInit {
 
     public saveExpense() {
         this.modalController.dismiss({
-            dismissed: true
+            dismissed: true,
+            expense: this.expense
         });
     }
 }

@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {Trip} from '../models/Trip';
 import { ModalController } from '@ionic/angular';
 import {NewExpenseModalComponent} from './new-expense-modal/new-expense-modal';
+import {TripService} from '../services/trip.service';
 
 @Component({
     selector: 'app-trip-expenses',
@@ -15,7 +16,8 @@ export class TripExpensesComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private modalController: ModalController
+        private modalController: ModalController,
+        private tripService: TripService
     ) {
     }
 
@@ -37,18 +39,6 @@ export class TripExpensesComponent implements OnInit {
         } else {
             this.trip = mockedTrip;
         }
-
-        this.trip.expenses = [
-            {
-                _id: '1',
-                amount: 14,
-                date: '29-02-2020',
-                buyer: 'Joy',
-                place: 'Cava',
-                reason: 'lunch'
-             }
-        ];
-
     }
 
     public async addNewExpense() {
@@ -56,6 +46,9 @@ export class TripExpensesComponent implements OnInit {
             component: NewExpenseModalComponent
         });
 
-        return await modal.present();
+        await modal.present();
+        const { data } = await modal.onWillDismiss();
+        this.trip.expenses.push(data.expense);
+        //this.tripService.updateTrip(this.trip);
     }
 }

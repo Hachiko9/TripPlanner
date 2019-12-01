@@ -3,6 +3,7 @@ import {Trip} from '../models/Trip';
 import {Router} from '@angular/router';
 import {NewTripDatesModalComponent} from './new-trip-dates-modal/new-trip-dates-modal';
 import {ModalController} from '@ionic/angular';
+import {TripService} from '../services/trip.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class NewTripComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private modalController: ModalController
+        private modalController: ModalController,
+        private tripService: TripService
     ) {
         this.newTrip = new Trip();
     }
@@ -25,7 +27,12 @@ export class NewTripComponent implements OnInit {
     }
 
     public saveTrip() {
-        this.router.navigate(['/list'], {state: {trip: this.newTrip}});
+        const part = this.newTrip.participants as string;
+        this.newTrip.participants = [];
+        this.newTrip.participants.push(part);
+        this.tripService.createTrip(this.newTrip).subscribe(() => {
+            this.router.navigate(['/list'], {state: {trip: this.newTrip}});
+        });
     }
 
     public async showCalendarToggle() {
@@ -36,6 +43,6 @@ export class NewTripComponent implements OnInit {
         await modal.present();
 
         const { data } = await modal.onWillDismiss();
-        console.log(data);
+        this.newTrip.dates = data.data;
     }
 }

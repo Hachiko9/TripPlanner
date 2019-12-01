@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
@@ -12,6 +13,7 @@ import {TripDetailModule} from './trip-detail/trip-detail.module';
 import { NgxIonicImageViewerModule } from 'ngx-ionic-image-viewer';
 import { CalendarModule } from 'ion2-calendar';
 
+
 @NgModule({
     declarations: [
         AppComponent
@@ -19,6 +21,7 @@ import { CalendarModule } from 'ion2-calendar';
     entryComponents: [],
     imports: [
         BrowserModule,
+        HttpClientModule,
         IonicModule.forRoot(),
         AppRoutingModule,
         TripDetailModule,

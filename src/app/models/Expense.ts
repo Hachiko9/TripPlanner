@@ -4,5 +4,5 @@ export class Expense {
     date: string;
     buyer: string;
     place: string;
-    reason: string;
+    notes: string;
 }

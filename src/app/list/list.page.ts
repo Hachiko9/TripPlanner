@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Trip} from '../models/Trip';
 import {Router} from '@angular/router';
+import { TripService } from '../services/trip.service';
 
 @Component({
     selector: 'app-list',
@@ -8,36 +9,17 @@ import {Router} from '@angular/router';
     styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-    public trips: Trip[] = [
-        {
-            _id: '5dd29bb99e73ff61694fdc35',
-            participants: ['Joy'],
-            city: 'Firenze',
-            dates: {
-                from: '23-10-2010',
-                to: '24-10-2010'
-            },
-            pictures: [],
-            expenses: [],
-            accommodation: ''
-        },
-        {
-            _id: '5dd29bb88e73ff61694fdc35',
-            participants: ['Joy'],
-            city: 'Cava',
-            dates: {
-                from: '02-11-2010',
-                to: '12-11-2010'
-            },
-            pictures: [],
-            expenses: [],
-            accommodation: ''
-        }
-    ];
+    public trips: Trip[] = [];
 
     constructor(
-        private router: Router
-    ) {}
+        private router: Router,
+        private tripService: TripService
+    ) {
+        this.tripService.getTrips().subscribe((trips) => {
+            console.log(trips);
+            this.trips = trips;
+        });
+    }
 
     ngOnInit() {}
 
