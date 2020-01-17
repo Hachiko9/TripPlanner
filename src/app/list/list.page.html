@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbar-style" color="light">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -10,7 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
+<ion-content color="light">
     <app-trip-summary *ngFor="let trip of trips"
                       (click)="goToDetailPage(trip)"
                       dates="{{trip.dates}}"

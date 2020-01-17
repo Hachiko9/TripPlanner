@@ -27,7 +27,8 @@ export class NewTripComponent implements OnInit {
     }
 
     public saveTrip() {
-        const part = this.newTrip.participants as string;
+        // noinspection TsLint
+        const part = <string><unknown>this.newTrip.participants;
         this.newTrip.participants = [];
         this.newTrip.participants.push(part);
         this.tripService.createTrip(this.newTrip).subscribe(() => {

@@ -6,6 +6,7 @@
 
 ion-card {
   background-color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
   .button-container {
     display: flex;
@@ -13,4 +14,9 @@ ion-card {
     justify-content: flex-end;
     margin: 8px;
   }
+}
+
+.toolbar-style {
+  color: #005661;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
